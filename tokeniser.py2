@@ -1,0 +1,33 @@
+import sys
+
+s = sys.stdin.readline()
+counter = 1
+
+while s:
+	s = s.strip()
+	
+	if s == '':
+		s = sys.stdin.readline()
+		continue
+	print('# sent_id = %d' % (counter))
+	counter = counter + 1
+	print('# text = %s' % (s))
+	
+
+	punct = s
+	punct = punct.replace('(', ' ( ')
+	punct = punct.replace(')', ' ) ')
+	punct = punct.replace(':', ' : ')
+	punct = punct.replace(';', ' ; ')
+	punct = punct.replace('.', ' . ')
+	punct = punct.replace(',', ' , ')
+	punct = punct.replace('"', ' " ')
+	counter1 = 1
+	token = punct.split(' ')
+	for c in token:
+		if c.strip() == '':
+			continue
+		print('%d	%s	%s	%s	%s	%s	%s	%s	%s	%s' % (counter1,	c,	'_',	'_',	'_',	'_',	'_',	'_',	'_',	'_'))
+		counter1 = counter1 + 1
+	s = sys.stdin.readline()
+	print()
