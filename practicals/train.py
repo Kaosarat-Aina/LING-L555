@@ -7,7 +7,7 @@ total_number_of_tokens = 0
 word_total_count = {}
 word_tag = {}
 
-fd = open('wiki.conllu', 'r')
+fd = open('wiki.conllu2', 'r')
 
 for line in fd.readlines():
 
@@ -27,22 +27,7 @@ for line in fd.readlines():
 	if form not in word_total_count:
 		word_total_count[form] = 0
 	word_total_count[form] += 1
-
-#for w in word_tag:
-	#print('%d\t%s' % (word_tag[tag], w))
-#for w1 in word_tag:
-	#if w1 not in word_tag:
-		#word_tag[w1] = {}
-	#for w2 in word_tag:
-		#word_tag[w1][w2] = 0
 	
-print('\t' + '\t'.join(word_tag))
-for form in word_tag:
-	print('%s\t' % (form), end='')
-	for tag in word_tag[form]:
-		print('%d\t%s\t' % (word_tag[form][tag], tag), end='')
-	print('')
-
 print("# P\tcount\ttag\tform")
 for form in word_tag:
     for tag, count in word_tag[form].items():
